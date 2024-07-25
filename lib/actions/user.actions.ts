@@ -1,6 +1,6 @@
 "use server";
 
-import { clerkClient, currentUser } from "@clerk/nextjs/server";
+import { clerkClient } from "@clerk/nextjs/server";
 import { parseStringify } from "../utils";
 import { liveblocks } from "../liveblocks";
 
@@ -38,8 +38,9 @@ export const getDocumentUsers = async ({
 }) => {
   try {
     const room = await liveblocks.getRoom(roomId);
+
     const users = Object.keys(room.usersAccesses).filter(
-      (email) => email !== email
+      (email) => email !== currentUser
     );
 
     if (text.length) {
@@ -51,8 +52,9 @@ export const getDocumentUsers = async ({
 
       return parseStringify(filteredUsers);
     }
+
     return parseStringify(users);
   } catch (error) {
-    console.log(`Error fetching users: ${error}`);
+    console.log(`Error fetching document users: ${error}`);
   }
 };

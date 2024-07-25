@@ -10,6 +10,7 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import React from "react";
+
 import {
   FloatingComposer,
   FloatingThreads,
@@ -18,7 +19,8 @@ import {
   useEditorStatus,
 } from "@liveblocks/react-lexical";
 import Loader from "../Loader";
-import FloatingToolbar from "./plugins/FloatingToolbarPlugin";
+
+import FloatingToolbarPlugin from "./plugins/FloatingToolbarPlugin";
 import { useThreads } from "@liveblocks/react/suspense";
 import Comments from "../Comments";
 import { DeleteModal } from "../DeleteModal";
@@ -72,7 +74,7 @@ export function Editor({
                 placeholder={<Placeholder />}
                 ErrorBoundary={LexicalErrorBoundary}
               />
-              {currentUserType === "editor" && <FloatingToolbar />}
+              {currentUserType === "editor" && <FloatingToolbarPlugin />}
               <HistoryPlugin />
               <AutoFocusPlugin />
             </div>
