@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 
 const Document = async ({ params: { id } }: SearchParamProps) => {
   const clerkUser = await currentUser();
-
   if (!clerkUser) redirect("/sign-in");
 
   const room = await getDocument({
@@ -18,6 +17,7 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
 
   const userIds = Object.keys(room.usersAccesses);
   const users = await getClerkUsers({ userIds });
+
   const usersData = users.map((user: User) => ({
     ...user,
     userType: room.usersAccesses[user.email]?.includes("room:write")
