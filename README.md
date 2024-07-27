@@ -27,20 +27,24 @@ Make sure you have the following installed on your machine:
 - Node.js
 - npm (Node Package Manager)
 
-Cloning the Repository
+**Cloning the Repository**
 
 ```bash
 git clone https://github.com/mate10106/bm_liveDocs.git
 cd bm_live_docs
 ```
 
-**Installation2**
+**Installation**
 
 Install the project dependencies using npm:
 
+```bash
+npm install
+```
+
 **Set Up Environment Variables**
 
-Create a new file named .env in the root of your project and add the following content:
+Create a new file named **.env** in the root of your project and add the following content:
 
 ```bash
 #Clerk
@@ -56,8 +60,10 @@ LIVEBLOCKS_SECRET_KEY=
 
 Replace the placeholder values with your actual Clerk & LiveBlocks credentials. You can obtain these credentials by signing up on the **Clerk** and **Liveblocks** website.
 
+**Running the Project**
+
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser to view the project.
+Open **http://localhost:3000** in your browser to view the project.
